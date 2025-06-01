@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c3c9b5b-39e2-4cb0-af67-0038efbe62b0" name="Changes" comment="Added: Updated Header and Footer to final form - added some Icons/Pictures">
+    <list default="true" id="3c3c9b5b-39e2-4cb0-af67-0038efbe62b0" name="Changes" comment="Added: Init Funciton and Display of images from an array">
       <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +39,7 @@
   }
 }]]></component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 2
@@ -84,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1748796854897</updated>
-      <workItem from="1748796855937" duration="2402000" />
+      <workItem from="1748796855937" duration="4749000" />
     </task>
     <task id="LOCAL-00001" summary="started with new Fotogram for study purposes">
       <option name="closed" value="true" />
@@ -110,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748798554961</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added: Init Funciton and Display of images from an array">
+      <option name="closed" value="true" />
+      <created>1748799366063</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1748799366063</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +128,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="started with new Fotogram for study purposes" />
     <MESSAGE value="Added: Updated Header and Footer to final form - added some Icons/Pictures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added: Updated Header and Footer to final form - added some Icons/Pictures" />
+    <MESSAGE value="Added: Init Funciton and Display of images from an array" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: Init Funciton and Display of images from an array" />
   </component>
 </project>

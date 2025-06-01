@@ -8,7 +8,8 @@ html {
 
 main {
     background-color: lightblue;
-    min-height: calc(100vh - 250px)
+    min-height: calc(100vh - 250px);
+    position: relative;
 }
 
 header {
@@ -29,7 +30,7 @@ nav {
 nav a {
     text-decoration: none;
     color: white;
-    font-size: 24px;
+    font-size: clamp(16px, 2vw, 24px);
 }
 
 nav a:hover {
@@ -72,5 +73,47 @@ footer a:hover {
 .content {
     max-width: 1440px;
     margin: auto;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: center;
+    justify-items: center;
+    padding: 24px;
+}
+
+.img-container {
+    width: 125px;
+    height: 125px;
+
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+}
+
+.overlay-content {
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.overlay-content img {
+    width: 100%;
+    height: 100%;
 }
 
