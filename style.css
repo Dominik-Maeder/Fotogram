@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    background-color: lightblue;
+    min-height: calc(100vh - 250px)
+}
+
+header {
+    height: 125px;
+    background-color: darkblue;
+}
+
+nav {
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+footer {
+    height: 125px;
+    background-color: darkblue;
+}
+
+.footer {
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
