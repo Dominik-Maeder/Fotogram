@@ -57,19 +57,23 @@ function getImgTemplate(i){
 
 function openOverlay(e, i){
     e.preventDefault();
-    let content  = document.getElementById('main');
-
-    let overlay = document.createElement('div');
-    overlay.classList.add('overlay')
-    overlay.innerHTML = renderOverlay(i)
-    content.appendChild(overlay);
+    let content  = document.getElementById('overlay');
+    content.classList.toggle('d_none')
+    content.innerHTML = renderOverlay(i)
 }
 
 function renderOverlay(i){
     return `
-    <div class="overlay-content">
-        <img src="${img[i].src}" alt="${img[i].alt}">
-        <p>${img[i].title}</p>      
-    </div>
+        <div class="overlay" onclick="preventDefault(event)">       
+            <img src="${img[i].src}" alt="${img[i].alt}">
+            <p>${img[i].title}</p>   
+        </div>    
     `
+}
+
+function preventDefault(event){
+    let content = document.getElementById('overlay')
+    content.classList.toggle('d_none')
+    event.stopPropagation();
+
 }

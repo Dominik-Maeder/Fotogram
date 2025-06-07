@@ -4,6 +4,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-family: 'Comic Neue', cursive ;
 }
 
 main {
@@ -53,6 +54,10 @@ footer {
     background-color: darkblue;
 }
 
+.d_none {
+    display: none !important;
+}
+
 .footer {
     max-width: 1440px;
     margin: auto;
@@ -84,6 +89,9 @@ footer a:hover {
 .img-container {
     width: 125px;
     height: 125px;
+    text-align: center;
+    font-size: clamp(16px, 2vw, 24px);
+
 
 }
 
@@ -104,8 +112,6 @@ footer a:hover {
 }
 
 .overlay-content {
-    width: 250px;
-    height: 250px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -113,7 +119,7 @@ footer a:hover {
 }
 
 .overlay-content img {
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 300px;
 }
 
