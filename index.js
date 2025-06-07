@@ -66,7 +66,11 @@ function renderOverlay(i){
     return `
         <div class="overlay" onclick="preventDefault(event)">       
             <img src="${img[i].src}" alt="${img[i].alt}">
-            <p>${img[i].title}</p>   
+            <div class="navigation-btn">
+                <p onclick="prevImg(${i}, event)"> <- </p>
+                <p>${img[i].title}</p>  
+                <p onclick="nextImg(${i})"> -> </p>
+            </div>         
         </div>    
     `
 }
@@ -75,5 +79,13 @@ function preventDefault(event){
     let content = document.getElementById('overlay')
     content.classList.toggle('d_none')
     event.stopPropagation();
+}
 
+function prevImg(i, event){
+    event.preventDefault();
+    console.log(i);
+}
+
+function nextImg(i) {
+    console.log(i);
 }

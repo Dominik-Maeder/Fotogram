@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -108,7 +109,16 @@ footer a:hover {
     height: 100%;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     top: 0;
+}
+
+.navigation-btn{
+    display: flex;
+    align-items: center;
+    padding: 16px 120px;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .overlay-content {
