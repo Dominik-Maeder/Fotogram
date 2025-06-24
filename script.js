@@ -48,10 +48,10 @@ function init(){
 
 function getImgTemplate(i){
     return `
-    <div class="img-container" onclick="openOverlay(event, ${i})">
-        <img src="${img[i].src}" alt="${img[i].alt}">
-        <p>${img[i].title}</p>
-     </div>
+        <figure class="img-container" onclick="openOverlay(event, ${i})">
+            <img src="${img[i].src}" alt="${img[i].alt}">
+            <figcaption>${img[i].title}</figcaption>
+        </figure>
     `
 }
 
@@ -67,9 +67,31 @@ function openOverlay(e, i){
 
 function renderOverlay(i){
     return `
-    <div class="overlay-content">
-        <img src="${img[i].src}" alt="${img[i].alt}">
-        <p>${img[i].title}</p>      
-    </div>
+        <figure class="overlay-content" role="dialog" aria-modal="true" aria-label="Image preview: ${img[i].title}">
+            <img id="imgContainer" src="${img[i].src}" alt="${img[i].alt}">
+            <figcaption>${img[i].title}</figcaption>
+            
+            <nav aria-label="Image navigation">
+                <button type="button" onclick="prevImg(${i})" aria-label="Previous image">‹</button>
+                <button type="button" onclick="nextImg(${i})" aria-label="Next image">›</button>
+            </nav>
+        </figure>
+
     `
+}
+
+function prevImg(i){
+    let newIndex = ((i - 1 + img.length) % img.length)
+    updateOverlay(newIndex);
+}
+
+function nextImg(i){
+    let newIndex = ((i + 1) % img.length)
+    updateOverlay(newIndex);
+}
+
+function updateOverlay(newIndex){
+    let overlay = document.querySelector('.overlay');
+    if (!overlay) return;
+    overlay.innerHTML = renderOverlay(newIndex);
 }

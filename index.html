@@ -2,35 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="index.js"></script>
     <title>Fotogram</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/x-icon">
+    <script src="script.js"></script>
 </head>
 <body onload="init()">
 
 <header>
-    <nav>
-        <div>
-            <img src="./assets/logo/fotogram_logo.svg" alt="">
+    <nav aria-label="Main navigation">
+        <div class="logo">
+            <a href="./index.html">
+                <img src="./assets/logo/fotogram_logo.svg" alt="Fotogram Logo">
+            </a>
         </div>
-        <div class="navigate_links">
-            <a href="./index.html">Main</a>
-            <a href="./imprint.html">Imprint</a>
-        </div>
+        <ul class="navigate_links">
+            <li><a href="./index.html">Main</a></li>
+            <li><a href="./imprint.html">Imprint</a></li>
+        </ul>
     </nav>
 </header>
 
 <main id="main">
-    <section class="content" id="content">
+    <section class="content" id="content" aria-label="Main content area">
 
     </section>
 </main>
 
 <footer>
-    <section class="footer">
-        <div>
-            <img src="./assets/logo/da_logo.png" alt="">
+    <section class="footer" aria-label="Footer area">
+        <div class="footer-logo">
+            <img src="./assets/logo/da_logo.png" alt="DA Logo">
         </div>
     </section>
 </footer>
