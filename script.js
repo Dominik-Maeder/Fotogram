@@ -1,39 +1,34 @@
 let img = [
     {
         src:'./assets/img/img11.jpg',
-        title: 'Test',
-        alt: 'Test',
+        title: 'Tennisplatz',
+        alt: 'Bild eines Tennisschlägers',
     },
     {
         src:'/assets/img/img5.jpg',
-        title: 'Test',
-        alt: 'Test',
+        title: 'Herdkochen',
+        alt: 'Bild vom Kochen am Herd',
     },
     {
         src:'./assets/img/img7.jpg',
-        title: 'Test',
-        alt: 'Test',
+        title: 'Klassiches Caffee',
+        alt: 'Klassiches Caffe mit Kuchen, Getränk, Kamera und Sonnenbrille',
     },
 
     {
         src:'./assets/img/img8.jpg',
-        title: 'Test',
-        alt: 'Test',
+        title: 'Basketballkorb',
+        alt: 'Basketball der gerade im Basketballkorb landet',
     },
     {
         src:'./assets/img/img9.jpg',
-        title: '',
-        alt: '',
-    },
-    {
-        src:'./assets/img/img11.jpg',
-        title: '',
-        alt: '',
+        title: 'Tour de France',
+        alt: 'Radfahrer bei der Tour de France',
     },
     {
         src:'./assets/img/img12.jpg',
-        title: '',
-        alt: '',
+        title: 'Seebrücke',
+        alt: 'Seebrücke in Bali',
     },
 ];
 
@@ -62,7 +57,21 @@ function openOverlay(e, i){
     let overlay = document.createElement('div');
     overlay.classList.add('overlay')
     overlay.innerHTML = renderOverlay(i)
+    overlay.setAttribute('onclick', 'closeOverlayOnOutsideClick(event)')
     content.appendChild(overlay);
+}
+
+function closeOverlayOnOutsideClick(event){
+    if (event.target.classList.contains('overlay')) {
+        closeOverlay();
+    }
+}
+
+function closeOverlay() {
+    let overlay = document.querySelector('.overlay');
+    if (overlay) {
+        overlay.remove();
+    }
 }
 
 function renderOverlay(i){
