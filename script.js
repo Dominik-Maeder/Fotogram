@@ -14,7 +14,6 @@ let img = [
         title: 'Klassiches Caffee',
         alt: 'Klassiches Caffe mit Kuchen, Getränk, Kamera und Sonnenbrille',
     },
-
     {
         src:'./assets/img/img8.jpg',
         title: 'Basketballkorb',
@@ -32,75 +31,81 @@ let img = [
     },
 ];
 
+let currentIndex = 0;
 
-function init(){
+function init() {
     let content = document.getElementById('content');
-
     for (let i = 0; i < img.length; i++) {
-        content.innerHTML += getImgTemplate(i)
+        content.innerHTML += getImgTemplate(i);
     }
 }
 
-function getImgTemplate(i){
+function getImgTemplate(i) {
     return `
-        <figure class="img-container" onclick="openOverlay(event, ${i})">
+        <figure class="img-container" onclick="openOverlay(${i})">
             <img src="${img[i].src}" alt="${img[i].alt}">
             <figcaption>${img[i].title}</figcaption>
         </figure>
-    `
+    `;
 }
 
-function openOverlay(e, i){
-    e.preventDefault();
-    let content  = document.getElementById('main');
+function openOverlay(i) {
+    currentIndex = i;
 
-    let overlay = document.createElement('div');
-    overlay.classList.add('overlay')
-    overlay.innerHTML = renderOverlay(i)
-    overlay.setAttribute('onclick', 'closeOverlayOnOutsideClick(event)')
-    content.appendChild(overlay);
-}
+    let existing = document.querySelector('dialog.overlay');
+    if (existing) existing.remove();
 
-function closeOverlayOnOutsideClick(event){
-    if (event.target.classList.contains('overlay')) {
-        closeOverlay();
-    }
+    let overlay = document.createElement('dialog');
+    overlay.classList.add('overlay');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-labelledby', 'dialog-title');
+    overlay.innerHTML = renderOverlay(i);
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeOverlay();
+    });
+
+    document.body.appendChild(overlay);
+    overlay.showModal();
+    overlay.querySelector('.close-btn').focus();
 }
 
 function closeOverlay() {
-    let overlay = document.querySelector('.overlay');
+    let overlay = document.querySelector('dialog.overlay');
     if (overlay) {
+        overlay.close();
         overlay.remove();
     }
 }
 
-function renderOverlay(i){
+function renderOverlay(i) {
     return `
-        <figure class="overlay-content" role="dialog" aria-modal="true" aria-label="Image preview: ${img[i].title}">
+        <figure class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay()" aria-label="Close overlay">✕</button>
             <img id="imgContainer" src="${img[i].src}" alt="${img[i].alt}">
-            <figcaption>${img[i].title}</figcaption>
-            
-            <nav aria-label="Image navigation">
-                <button type="button" onclick="prevImg(${i})" aria-label="Previous image">‹</button>
-                <button type="button" onclick="nextImg(${i})" aria-label="Next image">›</button>
+            <figcaption id="dialog-title">${img[i].title}</figcaption>
+            <nav aria-label="Img navigation">
+                <button type="button" onclick="prevImg()" aria-label="Previous Img"><</button>
+                <button type="button" onclick="nextImg()" aria-label="Next Img">></button>
             </nav>
+            
         </figure>
-
-    `
+    `;
 }
 
-function prevImg(i){
-    let newIndex = ((i - 1 + img.length) % img.length)
-    updateOverlay(newIndex);
+function prevImg() {
+    currentIndex = (currentIndex - 1 + img.length) % img.length;
+    updateOverlay(currentIndex);
 }
 
-function nextImg(i){
-    let newIndex = ((i + 1) % img.length)
-    updateOverlay(newIndex);
+function nextImg() {
+    currentIndex = (currentIndex + 1) % img.length;
+    updateOverlay(currentIndex);
 }
 
-function updateOverlay(newIndex){
-    let overlay = document.querySelector('.overlay');
+function updateOverlay(newIndex) {
+    let overlay = document.querySelector('dialog.overlay');
     if (!overlay) return;
     overlay.innerHTML = renderOverlay(newIndex);
 }
